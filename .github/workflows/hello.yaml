@@ -32,7 +32,8 @@ jobs:
     environment: production
     needs: hello
     steps:
-      - name: Print secret
+      - name: Print Variable
         run: echo ${{ vars.JB_DEMO_USER }}
-
+      - name: Print Secret
+        run: echo ${{ secrets.DOCKERHUB_USERNAME }}
 
