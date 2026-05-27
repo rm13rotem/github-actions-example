@@ -40,12 +40,12 @@ jobs:
 
   trivy:
     runs-on: ubuntu-latest
-
+    needs: hello
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Build an image from Dockerfile
-        run: docker build -t myapp:latest https://github.com/rm13rotem/devops_4.git/Dockerfile
+        run: docker build -t myapp:latest -f https://github.com/rm13rotem/devops_4.git/Dockerfile
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@v0.36.0
         with:
