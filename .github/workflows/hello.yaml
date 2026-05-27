@@ -27,3 +27,12 @@ jobs:
         with:
           who-to-greet: "Github actions student"
 
+  show-secret:
+    runs-on: ubuntu-latest
+    environment: production
+    needs: hello
+    steps:
+      - name: Print secret
+        run: echo ${{ vars.JB_DEMO_USER }}
+
+
