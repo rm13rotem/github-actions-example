@@ -45,11 +45,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Build an image from Dockerfile
-        run: docker build -t docker.io/rm13rotem/devops_4:${{ github.sha }} .
+        run: docker build -t myapp:latest https://github.com/rm13rotem/devops_4.git/Dockerfile
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@v0.36.0
         with:
-          image-ref: 'docker.io/rm13rotem/devops_4:${{ github.sha }}'
+          image-ref: 'myapp:latest'
           format: 'table'
           exit-code: '1'
           ignore-unfixed: true
